@@ -8,34 +8,45 @@ import SortBar from 'components/sort-bar/SortBar';
 
 export const defaultBooks = [
   {
+    id: 'OL10434104Z',
     title: 'Harry Potter',
     publishingYear: 1996,
     author: 'J.K Rowling',
     description: 'Young wizard going to Poudlard.',
+    dateAdded: 1616719846821,
   },
   {
+    id: 'OL10434503M',
     title: 'Harry Potter 2',
     publishingYear: 1999,
     author: 'J.K Rowling',
     description: 'Teenage wizard in Poudlard.',
+    dateAdded: 1616719908151,
   },
   {
+    id: 'OL10434503M',
     title: 'Harry Potter 3',
     publishingYear: 2003,
     author: 'J.K Rowling',
     description: 'Grown up wizard after Poudlard.',
+    dateAdded: 1616720009037,
   },
   {
+    id: 'OL10434104K',
     title: 'Post Office',
     publishingYear: 1971,
     author: 'Charles Bukowski',
     description: 'Story of an unconventional postman',
+    dateAdded: 1616719971604,
   },
   {
+    id: 'OL10434789N',
     title: 'Into The Wild',
     publishingYear: 2007,
     author: 'Sean Penn',
-    description: 'Chris McCandless 100 days in Alaska',
+    description:
+      'After graduating from Emory University, top student and athlete Christopher McCandless abandons his possessions, gives his entire $24,000 savings account to charity and hitchhikes to Alaska to live in the wilderness. Along the way, Christopher encounters a series of characters that shape his life.',
+    dateAdded: 1616720020058,
   },
 ];
 
@@ -66,7 +77,6 @@ export default class BookManager extends React.Component {
   };
 
   updateSortOption = (option) => {
-    console.log('READY TO UPDATE', option);
     this.setState({ currentSortOption: option });
     this.sortList();
   };
@@ -81,20 +91,21 @@ export default class BookManager extends React.Component {
 
     //Ascending sort
     if (currentSortOption == sortOptions.titleAscending) {
-      books.sort(function (a, b) {
+      books.sort((a, b) => {
         return b.title.localeCompare(a.title);
       });
     }
     //Descending sort
     else if (currentSortOption == sortOptions.titleDescending) {
-      books.sort(function (a, b) {
+      books.sort((a, b) => {
         return a.title.localeCompare(b.title);
       });
-
-      console.log('NEW BOOKS', books);
     }
     //orderAdded sort
     else {
+      books.sort((a, b) => {
+        return b.dateAdded - a.dateAdded;
+      });
     }
 
     var sortedBooks = books;
@@ -106,7 +117,7 @@ export default class BookManager extends React.Component {
     const { books, currentSortOption, sortOptions } = this.state;
 
     return (
-      <div className="container">
+      <div className="container mb-5">
         <MainTitle />
         <SearchMenu addBook={this.addBook} />
         <SortBar

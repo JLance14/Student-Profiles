@@ -11,9 +11,11 @@ export default class EditBook extends React.Component {
   constructor(props) {
     super(props);
 
+    console.log('BOOKINFO', props.bookInfo);
+
     this.state = {
       //todo
-      id: props.bookInfo,
+      id: props.bookInfo.id,
       title: props.bookInfo.title,
       published: props.bookInfo.publishingYear,
       author: props.bookInfo.author,
@@ -24,7 +26,9 @@ export default class EditBook extends React.Component {
   }
 
   handleUserInput = (event, field) => {
-    //alert(field);
+    console.log(event);
+
+    console.log(event.target.value);
     this.setState({ [field]: event.target.value });
   };
 
@@ -35,8 +39,10 @@ export default class EditBook extends React.Component {
   // };
 
   render() {
+    const { id, title, author, published, description } = this.state;
+
     return (
-      <Fragment id="edit_book_fragment">
+      <Fragment>
         <Dialog
           /* open={this.state.open}
         onClose={this.handleToggle} */
@@ -56,7 +62,7 @@ export default class EditBook extends React.Component {
               margin="dense"
               id="ID"
               label="ID"
-              value={this.state.publishingYear}
+              value={id}
               onChange={(e) => this.handleUserInput(e, 'id')}
               fullWidth
             />
@@ -66,7 +72,7 @@ export default class EditBook extends React.Component {
               margin="dense"
               id="title"
               label="Title"
-              value={this.state.title}
+              value={title}
               onChange={(e) => this.handleUserInput(e, 'title')}
               fullWidth
             />
@@ -76,7 +82,7 @@ export default class EditBook extends React.Component {
               margin="dense"
               id="author"
               label="Author"
-              value={this.state.author}
+              value={author}
               onChange={(e) => this.handleUserInput(e, 'author')}
               fullWidth
             />
@@ -86,7 +92,7 @@ export default class EditBook extends React.Component {
               margin="dense"
               id="published"
               label="published"
-              value={this.state.published}
+              value={published}
               onChange={(e) => this.handleUserInput(e, 'published')}
               fullWidth
             />
@@ -99,17 +105,17 @@ export default class EditBook extends React.Component {
               rows={3}
               rowsMax={Infinity}
               multiline={true}
-              value={this.state.description}
+              value={description}
               onChange={(e) => this.handleUserInput(e, 'description')}
               fullWidth
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.props.handleDialog} color="primary">
+            <Button onClick={this.props.closeDialog} color="primary">
               Save
             </Button>
             <Button
-              onClick={this.props.handleDialog}
+              onClick={this.props.closeDialog}
               color={'secondary'}
             >
               Cancel

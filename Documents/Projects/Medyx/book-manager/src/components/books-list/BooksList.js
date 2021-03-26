@@ -8,36 +8,44 @@ export default class BooksList extends React.Component {
 
     this.state = {
       books: this.props.books,
+      currentBook: {},
       isDialogShowing: false,
     };
   }
 
-  handleDialog = () => {
-    this.setState({ isDialogShowing: !this.state.isDialogShowing });
+  openDialog = (currentBook) => {
+    this.setState({
+      currentBook: currentBook,
+      isDialogShowing: true,
+    });
+  };
+
+  closeDialog = () => {
+    this.setState({ isDialogShowing: false });
   };
 
   render() {
+    const { currentBook } = this.state;
+
     return (
       this.state.books.length > 0 &&
       this.state.books.map((book, index) => {
         return (
-          <div className="card book_list_element text-center">
-            <div
-              className="card-body"
-              key={index}
-              //onClick={() => this.openDialog()}
-              onClick={this.handleDialog}
-            >
-              {this.state.isDialogShowing ? (
-                <EditBook
-                  //closeDialog={this.closeDialog}
-                  handleDialog={this.handleDialog}
-                  bookInfo={book}
-                />
-              ) : (
-                ''
-              )}
+          <div
+            className="card book_list_element text-center"
+            key={index}
+            onClick={() => this.openDialog(book)}
+          >
+            <div className="card-body">
               <div className="row">
+                {this.state.isDialogShowing ? (
+                  <EditBook
+                    closeDialog={this.closeDialog}
+                    bookInfo={currentBook}
+                  />
+                ) : (
+                  ''
+                )}
                 <div className="col-4">
                   <h5 className="card-title">{book.title}</h5>
                 </div>
