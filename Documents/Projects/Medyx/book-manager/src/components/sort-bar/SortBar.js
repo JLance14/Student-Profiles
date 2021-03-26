@@ -20,8 +20,8 @@ export default class SortBar extends React.Component {
     const menuClass = `dropdown-menu${isDropdownOpen ? ' show' : ''}`;
 
     return (
-      <div className="row my-4">
-        <div className="col-md-7 offset-md-6">
+      <div className="row my-5">
+        <div className="col-7 offset-9">
           <div class="dropdown" onClick={this.toggleDropdown}>
             <button
               className="btn btn-danger dropdown-toggle"

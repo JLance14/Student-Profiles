@@ -12,12 +12,8 @@ export default class BooksList extends React.Component {
     };
   }
 
-  openDialog = () => {
-    this.setState({ ...this.state, isDialogShowing: true });
-  };
-
-  closeDialog = () => {
-    this.setState({ ...this.state, isDialogShowing: false });
+  handleDialog = () => {
+    this.setState({ isDialogShowing: !this.state.isDialogShowing });
   };
 
   render() {
@@ -26,24 +22,37 @@ export default class BooksList extends React.Component {
       this.state.books.map((book, index) => {
         return (
           <div className="card book_list_element text-center">
-            {this.state.isDialogShowing ? (
-              <EditBook
-                closeDialog={this.closeDialog}
-                bookInfo={book}
-              />
-            ) : (
-              ''
-            )}
             <div
               className="card-body"
               key={index}
-              onClick={() => this.openDialog()}
+              //onClick={() => this.openDialog()}
+              onClick={this.handleDialog}
             >
-              <h5 className="card-title">{book.title}</h5>
-              <p className="card-text">{book.description}</p>
-              <a href="#" className="btn btn-primary">
-                Get Info
-              </a>
+              {this.state.isDialogShowing ? (
+                <EditBook
+                  //closeDialog={this.closeDialog}
+                  handleDialog={this.handleDialog}
+                  bookInfo={book}
+                />
+              ) : (
+                ''
+              )}
+              <div className="row">
+                <div className="col-4">
+                  <h5 className="card-title">{book.title}</h5>
+                </div>
+                <div className="offset-4 col-3">
+                  <h5 className="card-text">Author</h5>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-12">
+                  <p className="card-text text-left ml-4">
+                    {book.description}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         );

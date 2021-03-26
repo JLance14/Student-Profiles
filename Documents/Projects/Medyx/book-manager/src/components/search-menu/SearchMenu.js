@@ -122,13 +122,13 @@ export default class SearchMenu extends React.Component {
     return (
       <>
         <div className="row">
-          <div className="col-7 text-center">
+          <div className="col-9 mb-2 text-center">
             <h3>Add a book by Open Library ID Number</h3>
           </div>
         </div>
 
         <div className="row">
-          <div className="col-7">
+          <div className="col-9">
             <input
               type="text"
               className="form-control text-center"
@@ -145,7 +145,7 @@ export default class SearchMenu extends React.Component {
           >
             <button
               type="button"
-              className="btn btn-primary px-5 rounded-lg"
+              className="btn btn-primary px-5 offset-2 rounded-lg"
               id="add_book_btn"
               onClick={this.fetchBookInfo}
             >
