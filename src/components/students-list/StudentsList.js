@@ -1,13 +1,43 @@
 import "./style.css";
 import Student from "components/student/Student";
 
-const StudentsList = (props) =>
-  props && props.students && props.students.students ? (
-    <div>
-      {props.students.students.map((student) => (
-        <Student studentInfo={student} />
-      ))}
-    </div>
-  ) : null;
+const StudentsList = (props) => {
+  const { students, userSearch } = props;
+  const hasStudents = students.students;
+  const hasSearchCriteria = userSearch != "";
+  const searchName = userSearch.toUpperCase();
+
+  let showAllStudents = () => {
+    return (
+      <div>
+        {students.students.map((student) => (
+          <Student studentInfo={student} />
+        ))}
+      </div>
+    );
+  };
+
+  let showFilteredStudents = () => {
+    let filteredStudents = students.students.filter((student) => {
+      let studentIsCorresponding =
+        student.firstName.toUpperCase().includes(searchName) ||
+        student.lastName.toUpperCase().includes(searchName);
+
+      return studentIsCorresponding;
+    });
+
+    return filteredStudents.map((student) => <Student studentInfo={student} />);
+  };
+
+  if (hasStudents) {
+    if (hasSearchCriteria) {
+      return showFilteredStudents();
+    } else {
+      return showAllStudents();
+    }
+  }
+
+  return <div>No students available</div>;
+};
 
 export default StudentsList;

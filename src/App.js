@@ -5,6 +5,7 @@ import StudentsList from "components/students-list/StudentsList";
 
 const App = () => {
   const [students, setStudents] = useState([]);
+  const [userSearch, setUserSearch] = useState("");
 
   useEffect(() => {
     fetch("https://api.hatchways.io/assessment/students")
@@ -16,8 +17,8 @@ const App = () => {
 
   return (
     <div className="container text-center">
-      <SearchFilter />
-      <StudentsList students={students} />
+      <SearchFilter userSearch={userSearch} setUserSearch={setUserSearch} />
+      <StudentsList students={students} userSearch={userSearch} />
     </div>
   );
 };

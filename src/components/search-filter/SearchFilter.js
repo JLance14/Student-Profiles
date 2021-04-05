@@ -1,10 +1,11 @@
-import { useState } from "react";
+//import { useState } from "react";
 
-const SearchFilter = () => {
-  const [searchInput, setSearchInput] = useState([]);
+const SearchFilter = (props) => {
+  //const [searchInput, setSearchInput] = useState([]);
 
   let updateSearchInput = (e) => {
-    setSearchInput(e.target.value);
+    //setSearchInput(e.target.value);
+    props.setUserSearch(e.target.value);
   };
 
   return (
@@ -13,7 +14,7 @@ const SearchFilter = () => {
         <div class="input-group">
           <input
             name="searchtext"
-            value={searchInput}
+            value={props.userSearch}
             className="form-control col-12"
             type="text"
             onChange={updateSearchInput}
