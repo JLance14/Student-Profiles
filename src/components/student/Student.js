@@ -1,3 +1,5 @@
+import "./style.css";
+
 const Student = (props) => {
   function getAverageGrades(grades) {
     let total = 0;
@@ -12,14 +14,22 @@ const Student = (props) => {
 
     let studentAverage = getAverageGrades(studentInfo.grades);
     return (
-      <div>
-        <h4>
-          {studentInfo.firstName} {studentInfo.lastName}
-        </h4>
-        <h4>{studentInfo.email}</h4>
-        <h4>Company: {studentInfo.company}</h4>
-        <h4>Skill: {studentInfo.skill}</h4>
-        <h4>Average: {studentAverage}%</h4>
+      <div className="container">
+        <div className="row">
+          <div className="col-4">
+            <img src={studentInfo.pic} alt="student avatar" />
+          </div>
+          <div className="offset-4 col-8">
+            <h3 className="student-name">
+              {studentInfo.firstName.toUpperCase()}{" "}
+              {studentInfo.lastName.toUpperCase()}
+            </h3>
+            <h4>{studentInfo.email}</h4>
+            <h4>Company: {studentInfo.company}</h4>
+            <h4>Skill: {studentInfo.skill}</h4>
+            <h4>Average: {studentAverage}%</h4>
+          </div>
+        </div>
       </div>
     );
   } else {
