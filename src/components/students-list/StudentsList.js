@@ -10,8 +10,8 @@ const StudentsList = (props) => {
   let showAllStudents = () => {
     return (
       <div>
-        {students.students.map((student) => (
-          <Student studentInfo={student} />
+        {students.students.map((student, key) => (
+          <Student key={key} studentInfo={student} />
         ))}
       </div>
     );
