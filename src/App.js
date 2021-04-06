@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="container rounded-circle dashboard">
+      <div className="container main-container h-25 rounded-circle dashboard">
         <NameFilter nameSearch={nameSearch} setNameSearch={setNameSearch} />
         <TagFilter tagSearch={tagSearch} setTagSearch={setTagSearch} />
         <StudentsList

@@ -38,7 +38,7 @@ const Student = (props) => {
           <TagsList tags={studentInfo.tags} />
           <TagInput tags={tags} setTags={setTags} studentInfo={studentInfo} />
         </div>
-        <div className="col-md-2">
+        <div className="col-md-2 align-top">
           {showGrades ? (
             <RemoveIcon
               className="show-icon"
