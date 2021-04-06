@@ -10,7 +10,6 @@ h4 {
 }
 
 .student {
-  display: flex;
   align-items: center;
   border: 1px solid #ebeaea;
 }
@@ -24,7 +23,7 @@ img {
   height: 2.5rem !important;
   display: flex;
   align-items: flex-end;
-  margin-top: 3%;
+  margin-top: 10%;
 }
 
 .show-icon {
