@@ -10,7 +10,7 @@ const TagFilter = (props) => {
   return (
     <div className="row text-center">
       <div className="col-lg-12">
-        <div className="input-group">
+        <div className="input-group filter-input-group">
           <input
             name="searchtext"
             value={tagSearch}

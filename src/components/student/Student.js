@@ -4,9 +4,10 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import TagList from "components/tags-list/TagsList";
 import TagInput from "components/tag-input/TagInput";
+import GradesList from "components/grades-list/GradesList";
 
 const Student = (props) => {
-  const [showInfo, setShowInfo] = useState(false);
+  const [showGrades, setShowGrades] = useState(false);
   const [tags, setTags] = useState([]);
   function getAverageGrades(grades) {
     let total = 0;
@@ -34,19 +35,20 @@ const Student = (props) => {
           <h4>Company: {studentInfo.company}</h4>
           <h4>Skill: {studentInfo.skill}</h4>
           <h4>Average: {studentAverage}%</h4>
+          {showGrades && <GradesList grades={studentInfo.grades} />}
           <TagList tags={tags} />
           <TagInput tags={tags} setTags={setTags} />
         </div>
         <div className="col-md-2">
-          {showInfo ? (
+          {showGrades ? (
             <RemoveIcon
               className="show-icon"
-              onClick={() => setShowInfo(!showInfo)}
+              onClick={() => setShowGrades(!showGrades)}
             />
           ) : (
             <AddIcon
               className="show-icon"
-              onClick={() => setShowInfo(!showInfo)}
+              onClick={() => setShowGrades(!showGrades)}
             />
           )}
         </div>

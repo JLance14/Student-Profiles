@@ -1,3 +1,4 @@
+import "./style.css";
 import { useState } from "react";
 
 const TagInput = (props) => {
@@ -14,15 +15,14 @@ const TagInput = (props) => {
     setTagName("");
   };
   return (
-    <div className="input-group">
+    <div className="input-group tag-input-group">
       <input
         value={tagName}
-        className="form-control"
+        className="form-control tag-input"
         type="text"
         onBlur={addTag}
         onChange={updateTagName}
-        //onChange={updateNameSearch}
-        placeholder="Seach by name"
+        placeholder="Add a tag"
       />
       <span className="input-group-btn"></span>
     </div>
