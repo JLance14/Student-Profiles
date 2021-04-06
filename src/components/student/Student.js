@@ -31,6 +31,9 @@ const Student = (props) => {
           <h4>Company: {studentInfo.company}</h4>
           <h4>Skill: {studentInfo.skill}</h4>
           <h4>Average: {studentAverage}%</h4>
+          <button type="button" class="btn btn-secondary">
+            Secondary
+          </button>
         </div>
         <div className="col-md-2">
           {showInfo ? (

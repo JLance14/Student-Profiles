@@ -2,10 +2,10 @@ import "./style.css";
 import Student from "components/student/Student";
 
 const StudentsList = (props) => {
-  const { students, userSearch } = props;
+  const { students, nameSearch } = props;
   const hasStudents = students.students;
-  const hasSearchCriteria = userSearch != "";
-  const searchName = userSearch.toUpperCase();
+  const hasSearchCriteria = nameSearch != "";
+  const searchName = nameSearch.toUpperCase();
 
   let showAllStudents = () => {
     return (

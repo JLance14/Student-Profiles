@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import SearchFilter from "components/search-filter/SearchFilter";
+import NameFilter from "components/name-filter/NameFilter";
+import TagFilter from "components/tag-filter/TagFilter";
 import StudentsList from "components/students-list/StudentsList";
 
 const App = () => {
   const [students, setStudents] = useState([]);
-  const [userSearch, setUserSearch] = useState("");
+  const [nameSearch, setNameSearch] = useState("");
+  const [tagSearch, setTagSearch] = useState("");
 
   useEffect(() => {
     fetch("https://api.hatchways.io/assessment/students")
@@ -17,8 +19,9 @@ const App = () => {
 
   return (
     <div className="container">
-      <SearchFilter userSearch={userSearch} setUserSearch={setUserSearch} />
-      <StudentsList students={students} userSearch={userSearch} />
+      <NameFilter nameSearch={nameSearch} setNameSearch={setNameSearch} />
+      <TagFilter tagSearch={tagSearch} setTagSearch={setTagSearch} />
+      <StudentsList students={students} nameSearch={nameSearch} />
     </div>
   );
 };
