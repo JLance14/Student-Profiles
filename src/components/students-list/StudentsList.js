@@ -32,16 +32,12 @@ const StudentsList = (props) => {
   };
 
   let filterByTag = (unfilteredStudents) => {
-    //TODO
     let filteredStudents = unfilteredStudents.filter((student) => {
       let studentTags = student.tags;
-
-      let hasTag = false;
+      let correspondingTags = [];
 
       if (studentTags) {
-        hasTag = studentTags.filter((studentTag) => {
-          console.log("TAG: ", studentTag);
-
+        correspondingTags = studentTags.filter((studentTag) => {
           let isCorrespondingTag = studentTag
             .toUpperCase()
             .includes(tagSearch.toUpperCase());
@@ -49,8 +45,7 @@ const StudentsList = (props) => {
           return isCorrespondingTag;
         });
       }
-
-      return hasTag;
+      return correspondingTags.length > 0;
     });
 
     return filteredStudents;
