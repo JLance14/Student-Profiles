@@ -18,7 +18,7 @@ const Student = (props) => {
 
     let studentAverage = getAverageGrades(studentInfo.grades);
     return (
-      <div className="row">
+      <div className="row student">
         <div className="col-md-2 avatar">
           <img src={studentInfo.pic} alt="student avatar" height="500%" />
         </div>

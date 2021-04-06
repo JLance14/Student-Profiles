@@ -18,10 +18,12 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container">
-      <NameFilter nameSearch={nameSearch} setNameSearch={setNameSearch} />
-      <TagFilter tagSearch={tagSearch} setTagSearch={setTagSearch} />
-      <StudentsList students={students} nameSearch={nameSearch} />
+    <div className="App">
+      <div className="container rounded-circle dashboard">
+        <NameFilter nameSearch={nameSearch} setNameSearch={setNameSearch} />
+        <TagFilter tagSearch={tagSearch} setTagSearch={setTagSearch} />
+        <StudentsList students={students} nameSearch={nameSearch} />
+      </div>
     </div>
   );
 };

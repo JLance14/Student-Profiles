@@ -14,7 +14,7 @@ const NameFilter = (props) => {
           <input
             name="searchtext"
             value={nameSearch}
-            className="form-control name-search"
+            className="form-control filter-search"
             type="text"
             onChange={updateNameSearch}
             placeholder="Seach by name"

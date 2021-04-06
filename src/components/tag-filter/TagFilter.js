@@ -1,3 +1,5 @@
+import "./style.css";
+
 const TagFilter = (props) => {
   const { tagSearch, setTagSearch } = props;
 
@@ -12,7 +14,7 @@ const TagFilter = (props) => {
           <input
             name="searchtext"
             value={tagSearch}
-            className="form-control name-search"
+            className="form-control filter-search"
             type="text"
             onChange={updateTagSearch}
             placeholder="Seach by tag"
