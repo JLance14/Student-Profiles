@@ -5,4 +5,29 @@ h4 {
 .student-name {
   font-family: "Raleway";
   font-weight: 800;
+  font-size: 4rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e8e8e8;
+}
+
+img {
+  border-radius: 50% !important;
+  border: 2px solid #d3d3d3;
+}
+
+.avatar {
+  height: 2.5rem !important;
+  display: flex;
+  align-items: center;
+}
+
+.show-icon {
+  font-size: 4rem !important;
+  color: grey;
+  font-weight: bold;
+  cursor: pointer !important;
 }

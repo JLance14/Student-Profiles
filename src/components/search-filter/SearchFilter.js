@@ -1,10 +1,5 @@
-//import { useState } from "react";
-
 const SearchFilter = (props) => {
-  //const [searchInput, setSearchInput] = useState([]);
-
   let updateSearchInput = (e) => {
-    //setSearchInput(e.target.value);
     props.setUserSearch(e.target.value);
   };
 

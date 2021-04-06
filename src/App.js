@@ -16,7 +16,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container text-center">
+    <div className="container">
       <SearchFilter userSearch={userSearch} setUserSearch={setUserSearch} />
       <StudentsList students={students} userSearch={userSearch} />
     </div>
