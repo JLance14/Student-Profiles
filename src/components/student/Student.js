@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./style.css";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-import Tag from "components/tag/Tag";
+import TagList from "components/tags-list/TagsList";
 import TagInput from "components/tag-input/TagInput";
 
 const Student = (props) => {
@@ -34,9 +34,7 @@ const Student = (props) => {
           <h4>Company: {studentInfo.company}</h4>
           <h4>Skill: {studentInfo.skill}</h4>
           <h4>Average: {studentAverage}%</h4>
-          {tags.map((tag, key) => (
-            <Tag key={key} tag={tag} />
-          ))}
+          <TagList tags={tags} />
           <TagInput tags={tags} setTags={setTags} />
         </div>
         <div className="col-md-2">

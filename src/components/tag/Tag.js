@@ -1,6 +1,8 @@
+import "./style.css";
+
 const Tag = (props) => {
   const { tag } = props;
-  return <h2>{tag}</h2>;
+  return <span class="badge badge-secondary tag-badges">{tag}</span>;
 };
 
 export default Tag;

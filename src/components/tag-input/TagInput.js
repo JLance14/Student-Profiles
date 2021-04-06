@@ -11,6 +11,7 @@ const TagInput = (props) => {
   let addTag = () => {
     let updatedTags = [...tags, tagName];
     setTags(updatedTags);
+    setTagName("");
   };
   return (
     <div className="input-group">
