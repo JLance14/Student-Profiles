@@ -22,7 +22,11 @@ const App = () => {
       <div className="container rounded-circle dashboard">
         <NameFilter nameSearch={nameSearch} setNameSearch={setNameSearch} />
         <TagFilter tagSearch={tagSearch} setTagSearch={setTagSearch} />
-        <StudentsList students={students} nameSearch={nameSearch} />
+        <StudentsList
+          students={students}
+          nameSearch={nameSearch}
+          tagSearch={tagSearch}
+        />
       </div>
     </div>
   );

@@ -7,8 +7,11 @@ import TagInput from "components/tag-input/TagInput";
 import GradesList from "components/grades-list/GradesList";
 
 const Student = (props) => {
+  const { studentInfo } = props;
+  console.log("STUDENT OBJECT: ", props.studentInfo);
   const [showGrades, setShowGrades] = useState(false);
   const [tags, setTags] = useState([]);
+  //const [studentInfo, setStudentInfo] = useState(props.studentInfo);
   function getAverageGrades(grades) {
     let total = 0;
     grades.map((grade) => {
@@ -18,8 +21,6 @@ const Student = (props) => {
   }
 
   if (props) {
-    const { studentInfo } = props;
-
     let studentAverage = getAverageGrades(studentInfo.grades);
     return (
       <div className="row student">
@@ -37,7 +38,12 @@ const Student = (props) => {
           <h4>Average: {studentAverage}%</h4>
           {showGrades && <GradesList grades={studentInfo.grades} />}
           <TagList tags={tags} />
-          <TagInput tags={tags} setTags={setTags} />
+          <TagInput
+            tags={tags}
+            setTags={setTags}
+            studentInfo={studentInfo}
+            //setStudentInfo={setStudentInfo}
+          />
         </div>
         <div className="col-md-2">
           {showGrades ? (
