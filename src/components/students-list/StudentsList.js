@@ -4,7 +4,6 @@ import Student from "components/student/Student";
 
 const StudentsList = (props) => {
   const { students, nameSearch, tagSearch } = props;
-  //const [studentsList, setStudentsList] = useState(students.students);
   const allStudents = students.students;
   const hasStudents = allStudents != null;
   const hasNameSearchCriteria = nameSearch != "";
@@ -12,6 +11,7 @@ const StudentsList = (props) => {
   const hasSearchCriteria = hasNameSearchCriteria || hasTagSearchCriteria;
 
   let showAllStudents = () => {
+    console.log("ALL STUDENTS: ", allStudents);
     return (
       <div>
         {allStudents.map((student, key) => (
@@ -40,6 +40,9 @@ const StudentsList = (props) => {
 
   let showFilteredStudents = () => {
     let filteredStudents = allStudents;
+
+    console.log("ALL Unfiltered STUDENTS: ", allStudents);
+
     if (hasNameSearchCriteria) {
       filteredStudents = filterByName(allStudents);
     }

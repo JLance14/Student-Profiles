@@ -2,16 +2,14 @@ import { useState } from "react";
 import "./style.css";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
-import TagList from "components/tags-list/TagsList";
+import TagsList from "components/tags-list/TagsList";
 import TagInput from "components/tag-input/TagInput";
 import GradesList from "components/grades-list/GradesList";
 
 const Student = (props) => {
   const { studentInfo } = props;
-  console.log("STUDENT OBJECT: ", props.studentInfo);
   const [showGrades, setShowGrades] = useState(false);
-  const [tags, setTags] = useState([]);
-  //const [studentInfo, setStudentInfo] = useState(props.studentInfo);
+  const [tags, setTags] = useState(studentInfo.tags);
   function getAverageGrades(grades) {
     let total = 0;
     grades.map((grade) => {
@@ -37,13 +35,8 @@ const Student = (props) => {
           <h4>Skill: {studentInfo.skill}</h4>
           <h4>Average: {studentAverage}%</h4>
           {showGrades && <GradesList grades={studentInfo.grades} />}
-          <TagList tags={tags} />
-          <TagInput
-            tags={tags}
-            setTags={setTags}
-            studentInfo={studentInfo}
-            //setStudentInfo={setStudentInfo}
-          />
+          <TagsList tags={studentInfo.tags} />
+          <TagInput tags={tags} setTags={setTags} studentInfo={studentInfo} />
         </div>
         <div className="col-md-2">
           {showGrades ? (

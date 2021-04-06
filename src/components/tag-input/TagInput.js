@@ -2,7 +2,7 @@ import "./style.css";
 import { useState } from "react";
 
 const TagInput = (props) => {
-  const { tags, setTags, studentInfo, setStudentInfo } = props;
+  const { tags, setTags, studentInfo } = props;
   const [tagName, setTagName] = useState("");
 
   let updateTagName = (e) => {
@@ -10,16 +10,19 @@ const TagInput = (props) => {
   };
 
   let addTag = () => {
-    let updatedTags = [...tags, tagName];
-    setTags(updatedTags);
-    setTagName("");
-
-    if (studentInfo.tags) {
+    let updatedTags = [];
+    if (tags) {
       studentInfo.tags.push(tagName);
+      updatedTags = [...tags, tagName];
     } else {
       studentInfo.tags = [tagName];
+      updatedTags = [tagName];
     }
+
+    setTags(updatedTags);
+    setTagName("");
   };
+
   return (
     <div className="input-group tag-input-group">
       <input
