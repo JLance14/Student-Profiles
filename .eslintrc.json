@@ -2,7 +2,6 @@
   "extends": ["prettier", "eslint:recommended"],
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": 0,
-    "no-unused-vars": "off"
+    "prettier/prettier": 0
   }
 }

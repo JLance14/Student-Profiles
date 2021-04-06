@@ -1,7 +1,14 @@
+import "./style.css";
+
 const Grade = (props) => {
   const { index, grade } = props;
 
-  return <h4>{`Test ${index}: ${grade}`}</h4>;
+  return (
+    <div className="grade-container">
+      <p>Test {index}:</p>
+      <p className="grade">{grade}%</p>
+    </div>
+  );
 };
 
 export default Grade;

@@ -26,19 +26,19 @@ const Student = (props) => {
           <img src={studentInfo.pic} alt="student avatar" height="500%" />
         </div>
         <div className="col-md-8">
-          <h3 className="student-name">
+          <p className="student-name">
             {studentInfo.firstName.toUpperCase()}{" "}
             {studentInfo.lastName.toUpperCase()}
-          </h3>
-          <h4>{studentInfo.email}</h4>
-          <h4>Company: {studentInfo.company}</h4>
-          <h4>Skill: {studentInfo.skill}</h4>
-          <h4>Average: {studentAverage}%</h4>
+          </p>
+          <p>{studentInfo.email}</p>
+          <p>Company: {studentInfo.company}</p>
+          <p>Skill: {studentInfo.skill}</p>
+          <p>Average: {studentAverage}%</p>
           {showGrades && <GradesList grades={studentInfo.grades} />}
           <TagsList tags={studentInfo.tags} />
           <TagInput tags={tags} setTags={setTags} studentInfo={studentInfo} />
         </div>
-        <div className="col-md-2 align-top">
+        <div className="col-md-2 align-top hide-show">
           {showGrades ? (
             <RemoveIcon
               className="show-icon"

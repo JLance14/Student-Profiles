@@ -1,0 +1,8 @@
+.grade-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.grade {
+  margin-left: 3%;
+}

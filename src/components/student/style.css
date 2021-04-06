@@ -1,5 +1,6 @@
-h4 {
+p {
   font-family: "Raleway", sans-serif;
+  font-size: 2rem;
 }
 
 .student-name {
@@ -24,6 +25,10 @@ img {
   display: flex;
   align-items: flex-end;
   margin-top: 10%;
+}
+
+.hide-show {
+  margin-top: 2%;
 }
 
 .show-icon {
