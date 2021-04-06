@@ -4,8 +4,6 @@ import Tag from "components/tag/Tag";
 const TagsList = (props) => {
   const { tags } = props;
 
-  console.log("tags: ", tags);
-
   if (tags) {
     return (
       <div className="tags-list">

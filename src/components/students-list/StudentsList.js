@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./style.css";
 import Student from "components/student/Student";
 
@@ -11,7 +10,6 @@ const StudentsList = (props) => {
   const hasSearchCriteria = hasNameSearchCriteria || hasTagSearchCriteria;
 
   let showAllStudents = () => {
-    console.log("ALL STUDENTS: ", allStudents);
     return (
       <div>
         {allStudents.map((student, key) => (
@@ -35,13 +33,31 @@ const StudentsList = (props) => {
 
   let filterByTag = (unfilteredStudents) => {
     //TODO
-    return unfilteredStudents;
+    let filteredStudents = unfilteredStudents.filter((student) => {
+      let studentTags = student.tags;
+
+      let hasTag = false;
+
+      if (studentTags) {
+        hasTag = studentTags.filter((studentTag) => {
+          console.log("TAG: ", studentTag);
+
+          let isCorrespondingTag = studentTag
+            .toUpperCase()
+            .includes(tagSearch.toUpperCase());
+
+          return isCorrespondingTag;
+        });
+      }
+
+      return hasTag;
+    });
+
+    return filteredStudents;
   };
 
   let showFilteredStudents = () => {
     let filteredStudents = allStudents;
-
-    console.log("ALL Unfiltered STUDENTS: ", allStudents);
 
     if (hasNameSearchCriteria) {
       filteredStudents = filterByName(allStudents);
